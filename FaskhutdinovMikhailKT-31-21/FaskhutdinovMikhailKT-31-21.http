@@ -1,0 +1,6 @@
+@FaskhutdinovMikhailKT_31_21_HostAddress = http://localhost:5260
+
+GET {{FaskhutdinovMikhailKT_31_21_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
