@@ -6,6 +6,6 @@
         public string Title { get; set; }
 
         // Список преподавателей с этой степенью
-        public ICollection<Teacher> Teachers { get; set; }
+        public ICollection<Teacher>? Teachers { get; set; }
     }
 }

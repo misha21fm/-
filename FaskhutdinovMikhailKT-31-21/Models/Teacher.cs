@@ -8,18 +8,18 @@
         public string Patronymic { get; set; }
 
         // Связь с кафедрой
-        public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public int? DepartmentId { get; set; }
+        public Department? Department { get; set; }
 
         // Ученая степень
-        public int AcademicDegreeId { get; set; }
-        public AcademicDegree AcademicDegree { get; set; }
+        public int? AcademicDegreeId { get; set; }
+        public AcademicDegree? AcademicDegree { get; set; }
 
         // Должность
-        public int PositionId { get; set; }
-        public Position Position { get; set; }
+        public int? PositionId { get; set; }
+        public Position? Position { get; set; }
 
         // Список дисциплин, которые ведет преподаватель
-        public ICollection<TeacherDiscipline> TeacherDisciplines { get; set; }
+        public ICollection<TeacherDiscipline>? TeacherDisciplines { get; set; }
     }
 }

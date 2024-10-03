@@ -6,10 +6,10 @@
         public string Name { get; set; }
 
         // Связь с заведующим кафедры
-        public int HeadId { get; set; }
-        public Teacher Head { get; set; }
+        public int? HeadId { get; set; }
+        public Teacher? Head { get; set; }
 
         // Список преподавателей, относящихся к кафедре
-        public ICollection<Teacher> Teachers { get; set; }
+        public ICollection<Teacher>? Teachers { get; set; }
     }
 }

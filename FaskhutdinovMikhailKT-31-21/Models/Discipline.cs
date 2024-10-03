@@ -6,6 +6,6 @@
         public string Name { get; set; }
 
         // Преподаватели, ведущие данную дисциплину
-        public ICollection<TeacherDiscipline> TeacherDisciplines { get; set; }
+        public ICollection<TeacherDiscipline>? TeacherDisciplines { get; set; }
     }
 }
