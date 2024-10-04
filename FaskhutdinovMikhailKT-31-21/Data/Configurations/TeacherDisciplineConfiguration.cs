@@ -6,41 +6,50 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 {
     public class TeacherDisciplineConfiguration : IEntityTypeConfiguration<TeacherDiscipline>
     {
-        private const string TableName = "TeacherDiscipline";
+        private const string TableName = "cd_teacher_discipline";
 
         public void Configure(EntityTypeBuilder<TeacherDiscipline> builder)
         {
             // Задается ключ
             builder
                 .HasKey(e => new {e.DisciplineId, e.TeacherId})
-                .HasName("pk_teacher_discipline");
+                .HasName($"pk_{TableName}_teacher_discipline_id");
 
 
             builder.Property(e => e.TeacherId)
-                .HasColumnName("teacher_id")
+                .HasColumnName("f_teacher_id")
                 .HasComment("Идентификатор преподавателя");
 
             builder.Property(e => e.DisciplineId)
-                .HasColumnName("discipline_id")
+                .HasColumnName("f_discipline_id")
                 .HasComment("Идентификатор дисциплины");
 
             builder.Property(e => e.WorkloadHours)
-                .HasColumnName("workload_hours")
+                .HasColumnName("n_workload_hours")
                 .HasColumnType("int")
                 .HasComment("Рабочие часы");
 
-            //Указание связей
-            //builder.ToTable(TableName)
-            //    .HasOne(e => e.Teacher)
-            //    .WithMany(e => e.TeacherDisciplines)
-            //    .OnDelete(DeleteBehavior.SetNull);
-
             builder.ToTable(TableName)
                 .HasOne(e => e.Discipline)
-                .WithMany(e => e.TeacherDisciplines)
+                .WithMany()
                 .HasForeignKey(e => e.DisciplineId)
+                .HasConstraintName("fk_f_discipline_id")
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.ToTable(TableName)
+                .HasOne(e => e.Teacher)
+                .WithMany()
+                .HasForeignKey(e => e.TeacherId)
+                .HasConstraintName("fk_f_teacher_id")
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            //Указать индексы для внешних ключей
+            builder.ToTable(TableName)
+                .HasIndex(e => e.TeacherId, "idx_teacher_id");
+
+            builder.ToTable(TableName)
+                .HasIndex(e => e.DisciplineId, "idx_discipline_id");
         }
     }
 }

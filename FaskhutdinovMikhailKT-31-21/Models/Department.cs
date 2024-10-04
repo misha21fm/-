@@ -9,7 +9,5 @@
         public int? HeadId { get; set; }
         public Teacher? Head { get; set; }
 
-        // Список преподавателей, относящихся к кафедре
-        public ICollection<Teacher>? Teachers { get; set; }
     }
 }

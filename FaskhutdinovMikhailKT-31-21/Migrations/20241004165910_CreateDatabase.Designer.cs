@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FaskhutdinovMikhailKT_31_21.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241004152632_CreateDatabase")]
+    [Migration("20241004165910_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -38,13 +38,14 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("title")
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("c_title")
                         .HasComment("Название ученой степени");
 
-                    b.HasKey("AcademicDegreeId");
+                    b.HasKey("AcademicDegreeId")
+                        .HasName("pk_cs_academic_degree_academic_degree_id");
 
-                    b.ToTable("AcademicDegrees");
+                    b.ToTable("cs_academic_degree", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Department", b =>
@@ -59,24 +60,25 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
 
                     b.Property<int?>("HeadId")
                         .HasColumnType("int")
-                        .HasColumnName("head_id")
+                        .HasColumnName("f_head_id")
                         .HasComment("Идентификатор главы кафедры");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("name")
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("c_name")
                         .HasComment("Название кафедры");
 
-                    b.HasKey("DepartmentId");
+                    b.HasKey("DepartmentId")
+                        .HasName("pk_cs_department_department_id");
 
                     b.HasIndex("HeadId")
                         .IsUnique()
-                        .HasFilter("[head_id] IS NOT NULL");
+                        .HasFilter("[f_head_id] IS NOT NULL");
 
-                    b.HasIndex(new[] { "HeadId" }, "index_head_id");
+                    b.HasIndex(new[] { "HeadId" }, "idx_head_id");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("cs_department", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Discipline", b =>
@@ -92,13 +94,14 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("name")
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("c_name")
                         .HasComment("Название дисциплины");
 
-                    b.HasKey("DisciplineId");
+                    b.HasKey("DisciplineId")
+                        .HasName("pk_cs_discipline_discipline_id");
 
-                    b.ToTable("Disciplines");
+                    b.ToTable("cs_discipline", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Position", b =>
@@ -114,13 +117,14 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("title")
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("c_title")
                         .HasComment("Название должности");
 
-                    b.HasKey("PositionId");
+                    b.HasKey("PositionId")
+                        .HasName("pk_cs_position_position_id");
 
-                    b.ToTable("Positions");
+                    b.ToTable("cs_position", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Teacher", b =>
@@ -135,74 +139,77 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
 
                     b.Property<int?>("AcademicDegreeId")
                         .HasColumnType("int")
-                        .HasColumnName("academic_degree_id")
+                        .HasColumnName("f_academic_degree_id")
                         .HasComment("Идентификатор ученой степени");
 
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int")
-                        .HasColumnName("department_id")
+                        .HasColumnName("f_department_id")
                         .HasComment("Идентификатор кафедры");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("firstname")
+                        .HasColumnName("c_firstname")
                         .HasComment("Фамилия преподавателя");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("lastname")
+                        .HasColumnName("c_lastname")
                         .HasComment("Имя преподавателя");
 
                     b.Property<string>("Patronymic")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("patronymic")
+                        .HasColumnName("c_patronymic")
                         .HasComment("Отчество преподавателя");
 
                     b.Property<int?>("PositionId")
                         .HasColumnType("int")
-                        .HasColumnName("position_id")
+                        .HasColumnName("f_position_id")
                         .HasComment("Идентификатор должности");
 
-                    b.HasKey("TeacherId");
+                    b.HasKey("TeacherId")
+                        .HasName("pk_cd_teacher_teacher_id");
 
-                    b.HasIndex(new[] { "AcademicDegreeId" }, "index_academic_degree_id");
+                    b.HasIndex(new[] { "AcademicDegreeId" }, "idx_academic_degree_id");
 
-                    b.HasIndex(new[] { "DepartmentId" }, "index_department_id");
+                    b.HasIndex(new[] { "DepartmentId" }, "idx_department_id");
 
-                    b.HasIndex(new[] { "PositionId" }, "index_position_id");
+                    b.HasIndex(new[] { "PositionId" }, "idx_position_id");
 
-                    b.ToTable("Teacher", (string)null);
+                    b.ToTable("cd_teacher", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.TeacherDiscipline", b =>
                 {
                     b.Property<int?>("DisciplineId")
                         .HasColumnType("int")
-                        .HasColumnName("discipline_id")
+                        .HasColumnName("f_discipline_id")
                         .HasComment("Идентификатор дисциплины");
 
                     b.Property<int?>("TeacherId")
                         .HasColumnType("int")
-                        .HasColumnName("teacher_id")
+                        .HasColumnName("f_teacher_id")
                         .HasComment("Идентификатор преподавателя");
 
                     b.Property<int>("WorkloadHours")
                         .HasColumnType("int")
-                        .HasColumnName("workload_hours")
+                        .HasColumnName("n_workload_hours")
                         .HasComment("Рабочие часы");
 
                     b.HasKey("DisciplineId", "TeacherId")
-                        .HasName("pk_teacher_discipline");
+                        .HasName("pk_cd_teacher_discipline_teacher_discipline_id");
 
-                    b.HasIndex("TeacherId");
+                    b.HasIndex(new[] { "DisciplineId" }, "idx_discipline_id");
 
-                    b.ToTable("TeacherDiscipline", (string)null);
+                    b.HasIndex(new[] { "TeacherId" }, "idx_teacher_id");
+
+                    b.ToTable("cd_teacher_discipline", (string)null);
                 });
 
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Department", b =>
@@ -210,7 +217,8 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.Teacher", "Head")
                         .WithOne()
                         .HasForeignKey("FaskhutdinovMikhailKT_31_21.Models.Department", "HeadId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("fk_f_head_id");
 
                     b.Navigation("Head");
                 });
@@ -218,19 +226,22 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Teacher", b =>
                 {
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.AcademicDegree", "AcademicDegree")
-                        .WithMany("Teachers")
+                        .WithMany()
                         .HasForeignKey("AcademicDegreeId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("fk_f_academic_degree_id");
 
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.Department", "Department")
-                        .WithMany("Teachers")
+                        .WithMany()
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("fk_f_department_id");
 
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.Position", "Position")
-                        .WithMany("Teachers")
+                        .WithMany()
                         .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("fk_f_position_id");
 
                     b.Navigation("AcademicDegree");
 
@@ -242,45 +253,22 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
             modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.TeacherDiscipline", b =>
                 {
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.Discipline", "Discipline")
-                        .WithMany("TeacherDisciplines")
+                        .WithMany()
                         .HasForeignKey("DisciplineId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_f_discipline_id");
 
                     b.HasOne("FaskhutdinovMikhailKT_31_21.Models.Teacher", "Teacher")
-                        .WithMany("TeacherDisciplines")
+                        .WithMany()
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_f_teacher_id");
 
                     b.Navigation("Discipline");
 
                     b.Navigation("Teacher");
-                });
-
-            modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.AcademicDegree", b =>
-                {
-                    b.Navigation("Teachers");
-                });
-
-            modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Department", b =>
-                {
-                    b.Navigation("Teachers");
-                });
-
-            modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Discipline", b =>
-                {
-                    b.Navigation("TeacherDisciplines");
-                });
-
-            modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Position", b =>
-                {
-                    b.Navigation("Teachers");
-                });
-
-            modelBuilder.Entity("FaskhutdinovMikhailKT_31_21.Models.Teacher", b =>
-                {
-                    b.Navigation("TeacherDisciplines");
                 });
 #pragma warning restore 612, 618
         }

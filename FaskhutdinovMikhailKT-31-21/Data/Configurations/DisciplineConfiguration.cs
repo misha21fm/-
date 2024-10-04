@@ -1,18 +1,20 @@
 ﻿using FaskhutdinovMikhailKT_31_21.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using FaskhutdinovMikhailKT_31_21.Helpers;
 
 namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 {
     public class DisciplineConfiguration : IEntityTypeConfiguration<Discipline>
     {
-        private const string TableName = "Discipline";
+        private const string TableName = "cs_discipline";
 
         public void Configure(EntityTypeBuilder<Discipline> builder)
         {
             // Задается ключ
             builder
-                .HasKey(e => e.DisciplineId);
+                .HasKey(e => e.DisciplineId)
+                .HasName($"pk_{TableName}_discipline_id");
 
             // Задается автогенерация для PK
             builder.Property(e => e.DisciplineId)
@@ -20,20 +22,16 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 
             builder.Property(e => e.DisciplineId)
                 .HasColumnName("discipline_id")
+                .HasColumnType(ColumnType.Int)
                 .HasComment("Идентификатор дисциплины");
 
             builder.Property(e => e.Name)
-                .HasColumnName("name")
+                .HasColumnName("c_name")
+                .HasColumnType(ColumnType.String)
                 .HasMaxLength(100)
                 .HasComment("Название дисциплины");
 
-            // Указание связей
-            //builder.ToTable(TableName)
-            //    .HasMany(e => e.TeacherDisciplines)
-            //    .WithOne(e => e.Discipline)
-            //    .HasForeignKey(e => e.DisciplineId)
-            //    .OnDelete(DeleteBehavior.Cascade);
-
+            builder.ToTable(TableName);
 
         }
     }

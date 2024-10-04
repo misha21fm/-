@@ -5,7 +5,5 @@
         public int AcademicDegreeId { get; set; }
         public string Title { get; set; }
 
-        // Список преподавателей с этой степенью
-        public ICollection<Teacher>? Teachers { get; set; }
     }
 }

@@ -5,7 +5,5 @@
         public int PositionId { get; set; }
         public string Title { get; set; }
 
-        // Список преподавателей, занимающих эту должность
-        public ICollection<Teacher>? Teachers { get; set; }
     }
 }
