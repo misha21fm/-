@@ -5,7 +5,7 @@
 namespace FaskhutdinovMikhailKT_31_21.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDatabsae : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

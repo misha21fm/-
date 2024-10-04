@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FaskhutdinovMikhailKT_31_21.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241003111312_CreateDatabsae")]
-    partial class CreateDatabsae
+    [Migration("20241004152632_CreateDatabase")]
+    partial class CreateDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
