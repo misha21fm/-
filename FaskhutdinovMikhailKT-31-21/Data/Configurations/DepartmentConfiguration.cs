@@ -23,7 +23,7 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
             builder.Property(e => e.DepartmentId)
                 .HasColumnName("department_id")
                 .HasColumnType(ColumnType.Int)
-                .HasComment("Идентификатор кафедры");//Тип колонки укажи. Везде.
+                .HasComment("Идентификатор кафедры");
 
             builder.Property(e => e.Name)
                 .HasColumnName("c_name")
@@ -43,7 +43,6 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
                 .HasOne(e => e.Head)
                 .WithOne()
                 .HasForeignKey<Department>(e => e.HeadId)
-//                .IsRequired(false)
                 .HasConstraintName("fk_f_head_id")
                 .OnDelete(DeleteBehavior.SetNull);
 

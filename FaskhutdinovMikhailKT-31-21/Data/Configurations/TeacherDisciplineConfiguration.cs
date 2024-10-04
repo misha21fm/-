@@ -1,4 +1,5 @@
-﻿using FaskhutdinovMikhailKT_31_21.Models;
+﻿using FaskhutdinovMikhailKT_31_21.Helpers;
+using FaskhutdinovMikhailKT_31_21.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,15 +19,17 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 
             builder.Property(e => e.TeacherId)
                 .HasColumnName("f_teacher_id")
+                .HasColumnType(ColumnType.Int)
                 .HasComment("Идентификатор преподавателя");
 
             builder.Property(e => e.DisciplineId)
                 .HasColumnName("f_discipline_id")
+                .HasColumnType(ColumnType.Int)
                 .HasComment("Идентификатор дисциплины");
 
             builder.Property(e => e.WorkloadHours)
                 .HasColumnName("n_workload_hours")
-                .HasColumnType("int")
+                .HasColumnType(ColumnType.Int)
                 .HasComment("Рабочие часы");
 
             builder.ToTable(TableName)

@@ -147,21 +147,21 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("c_firstname")
                         .HasComment("Фамилия преподавателя");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("c_lastname")
                         .HasComment("Имя преподавателя");
 
                     b.Property<string>("Patronymic")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("c_patronymic")
                         .HasComment("Отчество преподавателя");
 

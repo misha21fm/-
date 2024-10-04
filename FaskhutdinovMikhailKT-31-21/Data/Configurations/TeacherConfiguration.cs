@@ -1,6 +1,7 @@
 ﻿using FaskhutdinovMikhailKT_31_21.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using FaskhutdinovMikhailKT_31_21.Helpers;
 
 namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 {
@@ -26,32 +27,35 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
 
             builder.Property(e => e.FirstName)
                 .HasColumnName("c_firstname")
+                .HasColumnType(ColumnType.String)
                 .HasMaxLength(100)
                 .HasComment("Фамилия преподавателя");
 
             builder.Property(e => e.LastName)
                .HasColumnName("c_lastname")
+               .HasColumnType(ColumnType.String)
                .HasMaxLength(100)
                .HasComment("Имя преподавателя");
 
             builder.Property(e => e.Patronymic)
                .HasColumnName("c_patronymic")
+               .HasColumnType(ColumnType.String)
                .HasMaxLength(100)
                .HasComment("Отчество преподавателя");
 
             builder.Property(e => e.DepartmentId)
                 .HasColumnName("f_department_id")
-                .IsRequired(false)
+                .HasColumnType(ColumnType.Int)
                 .HasComment("Идентификатор кафедры");
 
             builder.Property(e => e.AcademicDegreeId)
                .HasColumnName("f_academic_degree_id")
-               .IsRequired(false)
+               .HasColumnType(ColumnType.Int)
                .HasComment("Идентификатор ученой степени");
 
             builder.Property(e => e.PositionId)
                .HasColumnName("f_position_id")
-               .IsRequired(false)
+               .HasColumnType(ColumnType.Int)
                .HasComment("Идентификатор должности");
 
             // Указание связей
@@ -60,7 +64,6 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
                 .HasOne(e => e.Department)
                 .WithMany()
                 .HasForeignKey(e => e.DepartmentId)
-//                .IsRequired(false)
                 .HasConstraintName("fk_f_department_id")
                 .OnDelete(DeleteBehavior.SetNull);
 
@@ -68,7 +71,6 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
                 .HasOne(e => e.AcademicDegree)
                 .WithMany()
                 .HasForeignKey(e => e.AcademicDegreeId)
-//                .IsRequired(false)
                 .HasConstraintName("fk_f_academic_degree_id")
                 .OnDelete(DeleteBehavior.SetNull);
 
@@ -76,7 +78,6 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
                 .HasOne(e => e.Position)
                 .WithMany()
                 .HasForeignKey(e => e.PositionId)
-//                .IsRequired(false)
                 .HasConstraintName("fk_f_position_id")
                 .OnDelete(DeleteBehavior.SetNull);
 
