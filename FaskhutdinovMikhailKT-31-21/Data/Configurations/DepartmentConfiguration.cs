@@ -25,6 +25,11 @@ namespace FaskhutdinovMikhailKT_31_21.Data.Configurations
                 .HasColumnType(ColumnType.Int)
                 .HasComment("Идентификатор кафедры");
 
+            builder.Property(e => e.CreateDate)
+                .HasColumnName("d_create")
+                .HasColumnType(ColumnType.Date)
+                .HasComment("Дата основания кафедры");
+
             builder.Property(e => e.Name)
                 .HasColumnName("c_name")
                 .HasColumnType(ColumnType.String)

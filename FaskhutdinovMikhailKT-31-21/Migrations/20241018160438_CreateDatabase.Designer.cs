@@ -4,6 +4,7 @@ using FaskhutdinovMikhailKT_31_21.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FaskhutdinovMikhailKT_31_21.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241018160438_CreateDatabase")]
+    partial class CreateDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,37 +141,62 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         new
                         {
                             DepartmentId = 1,
-                            CreateDate = new DateTime(2024, 10, 18, 19, 11, 0, 565, DateTimeKind.Local).AddTicks(9043),
-                            HeadId = 1,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7147),
                             Name = "Computer Science"
                         },
                         new
                         {
                             DepartmentId = 2,
-                            CreateDate = new DateTime(2024, 10, 18, 19, 11, 0, 565, DateTimeKind.Local).AddTicks(9056),
-                            HeadId = 2,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7160),
                             Name = "Mathematics"
                         },
                         new
                         {
                             DepartmentId = 3,
-                            CreateDate = new DateTime(2024, 10, 18, 19, 11, 0, 565, DateTimeKind.Local).AddTicks(9059),
-                            HeadId = 3,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7162),
                             Name = "Physics"
                         },
                         new
                         {
                             DepartmentId = 4,
-                            CreateDate = new DateTime(2024, 10, 18, 19, 11, 0, 565, DateTimeKind.Local).AddTicks(9061),
-                            HeadId = 4,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7163),
                             Name = "Chemistry"
                         },
                         new
                         {
                             DepartmentId = 5,
-                            CreateDate = new DateTime(2024, 10, 18, 19, 11, 0, 565, DateTimeKind.Local).AddTicks(9063),
-                            HeadId = 5,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7165),
                             Name = "Biology"
+                        },
+                        new
+                        {
+                            DepartmentId = 6,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7166),
+                            Name = "Electrical Engineering"
+                        },
+                        new
+                        {
+                            DepartmentId = 7,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7167),
+                            Name = "Mechanical Engineering"
+                        },
+                        new
+                        {
+                            DepartmentId = 8,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7168),
+                            Name = "Civil Engineering"
+                        },
+                        new
+                        {
+                            DepartmentId = 9,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7170),
+                            Name = "Economics"
+                        },
+                        new
+                        {
+                            DepartmentId = 10,
+                            CreateDate = new DateTime(2024, 10, 18, 19, 4, 38, 7, DateTimeKind.Local).AddTicks(7171),
+                            Name = "Psychology"
                         });
                 });
 
@@ -384,7 +412,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 1,
                             AcademicDegreeId = 1,
-                            DepartmentId = 1,
                             FirstName = "John",
                             LastName = "Smith",
                             Patronymic = "A.",
@@ -394,7 +421,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 2,
                             AcademicDegreeId = 2,
-                            DepartmentId = 2,
                             FirstName = "Alice",
                             LastName = "Johnson",
                             Patronymic = "B.",
@@ -404,7 +430,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 3,
                             AcademicDegreeId = 3,
-                            DepartmentId = 3,
                             FirstName = "Robert",
                             LastName = "Brown",
                             Patronymic = "C.",
@@ -414,7 +439,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 4,
                             AcademicDegreeId = 4,
-                            DepartmentId = 4,
                             FirstName = "Mary",
                             LastName = "Jones",
                             Patronymic = "D.",
@@ -424,7 +448,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 5,
                             AcademicDegreeId = 5,
-                            DepartmentId = 4,
                             FirstName = "Michael",
                             LastName = "Williams",
                             Patronymic = "E.",
@@ -434,7 +457,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 6,
                             AcademicDegreeId = 6,
-                            DepartmentId = 5,
                             FirstName = "Patricia",
                             LastName = "Garcia",
                             Patronymic = "F.",
@@ -444,7 +466,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 7,
                             AcademicDegreeId = 7,
-                            DepartmentId = 4,
                             FirstName = "Linda",
                             LastName = "Miller",
                             Patronymic = "G.",
@@ -454,7 +475,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 8,
                             AcademicDegreeId = 8,
-                            DepartmentId = 2,
                             FirstName = "James",
                             LastName = "Martinez",
                             Patronymic = "H.",
@@ -464,7 +484,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 9,
                             AcademicDegreeId = 9,
-                            DepartmentId = 3,
                             FirstName = "Barbara",
                             LastName = "Lopez",
                             Patronymic = "I.",
@@ -474,7 +493,6 @@ namespace FaskhutdinovMikhailKT_31_21.Migrations
                         {
                             TeacherId = 10,
                             AcademicDegreeId = 10,
-                            DepartmentId = 2,
                             FirstName = "David",
                             LastName = "Wilson",
                             Patronymic = "J.",

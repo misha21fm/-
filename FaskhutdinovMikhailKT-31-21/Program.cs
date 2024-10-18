@@ -1,4 +1,5 @@
 using FaskhutdinovMikhailKT_31_21.Data;
+using FaskhutdinovMikhailKT_31_21.ServiceExtensions;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
@@ -24,6 +25,8 @@ try
     {
         options.UseSqlServer(builder.Configuration.GetConnectionString("ConnString"));
     });
+
+    builder.Services.AddService();
 
     var app = builder.Build();
 
