@@ -1,4 +1,5 @@
 ﻿using FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces;
+using FaskhutdinovMikhailKT_31_21.Interfaces.TeachersInterfaces;
 using System.Runtime.CompilerServices;
 
 namespace FaskhutdinovMikhailKT_31_21.ServiceExtensions

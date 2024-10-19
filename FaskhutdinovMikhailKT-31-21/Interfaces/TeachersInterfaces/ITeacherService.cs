@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 
-namespace FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces
+namespace FaskhutdinovMikhailKT_31_21.Interfaces.TeachersInterfaces
 {
     public interface ITeacherService
     {
@@ -33,7 +33,7 @@ namespace FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces
 
             if (filter.TeacherId != null)
             {
-                teachers = teachers.Where(t => t.TeacherId == filter.TeacherId);   
+                teachers = teachers.Where(t => t.TeacherId == filter.TeacherId);
             }
 
             return await teachers.ToArrayAsync(cancellationToken);

@@ -23,8 +23,6 @@ namespace FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces
 
         public async Task<Department?[]> GetDepartmentListAsync(DepartmentFilter filter, CancellationToken cancellationToken = default)
         {
-            //var dbsetDep = _dbContext.Set<Department>();
-            //var departments = dbsetDep.Where(e => e.CreateDate == filter.CreationDatetime).ToListAsync(cancellationToken);
             
             var query = _dbContext.Set<Teacher>().AsQueryable();
             query = query.Include(t => t.Department);

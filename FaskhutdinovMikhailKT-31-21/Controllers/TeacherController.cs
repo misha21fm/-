@@ -1,6 +1,6 @@
 ﻿using FaskhutdinovMikhailKT_31_21.Data;
 using FaskhutdinovMikhailKT_31_21.Filters;
-using FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces;
+using FaskhutdinovMikhailKT_31_21.Interfaces.TeachersInterfaces;
 using FaskhutdinovMikhailKT_31_21.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
