@@ -10,6 +10,7 @@ namespace FaskhutdinovMikhailKT_31_21.ServiceExtensions
         {
 
             services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
 
             return services;
         }
