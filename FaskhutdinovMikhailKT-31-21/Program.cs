@@ -1,4 +1,5 @@
 using FaskhutdinovMikhailKT_31_21.Data;
+using FaskhutdinovMikhailKT_31_21.Middlewares;
 using FaskhutdinovMikhailKT_31_21.ServiceExtensions;
 using Microsoft.EntityFrameworkCore;
 using NLog;
@@ -36,6 +37,8 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseMiddleware<ExceptionHandlerMiddleware>();
 
     app.UseAuthorization();
 
