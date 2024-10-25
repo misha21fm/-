@@ -27,6 +27,15 @@ namespace FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces
             var query = _dbContext.Set<Teacher>().AsQueryable();
             query = query.Include(t => t.Department);
 
+            var testlist = query.ToList();
+
+            if (filter.DepartmentName != null)
+            {
+                query = query.Where(t => t.Department.Name == filter.DepartmentName);
+            }
+
+            testlist = query.ToList();
+
             if (filter.CreationYear != null)
             {
                 query = query.Where(t => t.Department!.CreateDate.Year == filter.CreationYear);
@@ -43,8 +52,10 @@ namespace FaskhutdinovMikhailKT_31_21.Interfaces.DepartmentsInterfaces
                 groupDepartment = groupDepartment.Where(gd => gd.TeacherCount <= filter.TeachersCountMax);
             }
 
+            var testcgroup = groupDepartment.ToList();
+
             return await groupDepartment.Select(r => r.DepKey)
-                .Join(_dbContext.Teachers, d => d.HeadId, t => t.TeacherId, (d, t) => new Department() { DepartmentId = d.DepartmentId, CreateDate = d.CreateDate, Name = d.Name, HeadId = d.HeadId, Head = t})
+                .Join(_dbContext.Teachers, d => d.HeadId, t => t.TeacherId, (d, t) => new Department() { DepartmentId = d.DepartmentId, CreateDate = d.CreateDate, Name = d.Name, HeadId = t.TeacherId, Head = t})
                 .ToArrayAsync();
         }
 

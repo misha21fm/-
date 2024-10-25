@@ -2,7 +2,8 @@
 {
     public class DepartmentFilter
     {
-        public int? CreationYear {  get; set; } 
+        public string? DepartmentName { get; set; }
+        public int? CreationYear { get; set; } 
         public int? TeachersCountMin { get; set; }
         public int? TeachersCountMax { get; set; }
     }

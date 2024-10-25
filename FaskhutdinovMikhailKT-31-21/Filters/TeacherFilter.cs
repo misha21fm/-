@@ -3,5 +3,6 @@
     public class TeacherFilter
     {
         public int? TeacherId { get; set; }
+        public int? DepartmentId { get; set; }  
     }
 }

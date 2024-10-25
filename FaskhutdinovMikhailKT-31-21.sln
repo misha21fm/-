@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaskhutdinovMikhailKT-31-21", "FaskhutdinovMikhailKT-31-21\FaskhutdinovMikhailKT-31-21.csproj", "{32A917AC-7E1B-449B-A83E-942DC16D2255}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaskhutdinovMikhailKT31-21.Tests", "FaskhutdinovMikhailKT31-21.Tests\FaskhutdinovMikhailKT31-21.Tests.csproj", "{F1AF408C-A053-4633-A7B2-4061E565C008}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{32A917AC-7E1B-449B-A83E-942DC16D2255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A917AC-7E1B-449B-A83E-942DC16D2255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A917AC-7E1B-449B-A83E-942DC16D2255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AF408C-A053-4633-A7B2-4061E565C008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AF408C-A053-4633-A7B2-4061E565C008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AF408C-A053-4633-A7B2-4061E565C008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AF408C-A053-4633-A7B2-4061E565C008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
